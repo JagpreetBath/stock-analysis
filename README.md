@@ -12,6 +12,7 @@ The purpose of this analysis is to help Steve analyze green energy stocks for St
 ## Results 
 
 DAQO(DQ) stocks return dropped over 62% in 2018 (See image below). Based on analysis Steve should advise his parents against buying DQ Stocks.
+
 ![VBA_Challenge_DQ(DAQO)_Stocks_Result](./Resources/VBA_Challenge_DQ(DAQO)_Stocks_Result.png)
 
 ENPH and RUN stocks return was over 129% and 5% respectively (See image below All Stocks (2017)). ENPH and RUN stocks return was over 82% and 84% respectively (See image below All Stocks (2018)). A recommendation can be made by Steve to his parent to invest in ENPH and RUN stocks. Steve should recommend investing in both funds since he wants to diversify investment for his parents. 
@@ -21,15 +22,19 @@ ENPH and RUN stocks return was over 129% and 5% respectively (See image below Al
 
 
 2017 Refactored All Stock Analysis excution time:
+
 ![VBA_Challenge_2017](./Resources/VBA_Challenge_2017.png)
 
 2017  All Stock Analysis excution time:
+
 ![VBA_Challenge_2017_Original](./Resources/VBA_Challenge_2017_Original.png)
 
 2018 Refactored All Stock Analysis excution time:
+
 ![VBA_Challenge_2018](./Resources/VBA_Challenge_2018.png)
 
 2017  All Stock Analysis excution time:
+
 ![VBA_Challenge_2018_Original](./Resources/VBA_Challenge_2018_Original.png)
 
 2017 and 2018 Refactored All Stock Analysis execution time is 2-3 seconds faster than the 2017 and 2018 All Stock Analysis (Original). 
