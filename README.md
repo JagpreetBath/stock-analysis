@@ -37,7 +37,7 @@ ENPH and RUN stocks return was over 129% and 5% respectively (See image below Al
 
 ![VBA_Challenge_2018_Original](./Resources/VBA_Challenge_2018_Original.png)
 
-2017 and 2018 Refactored All Stock Analysis execution time is 2-3 seconds faster than the 2017 and 2018 All Stock Analysis (Original). 
+2017 and 2018 Refactored All Stock Analysis execution time is approximately 54 seconds faster than the 2017 and 2018 All Stock Analysis (Original). 
 
 ## Summary
 What are the advantages or disadvantages of refactoring code?

@@ -36,61 +36,61 @@ Sub AllStocksAnalysisRefactored()
     '4b) Get the number of rows to loop over
     RowCount = Cells(Rows.Count, "A").End(xlUp).Row
      
-    Dim i As Integer
     
     '5a) Create a ticker Index
     Dim tickerIndex As Integer
     tickerIndex = 0
+        
+    ticker = tickers(tickerIndex)
+        
+    '5b) Create three output arrays
+    Dim tickerVolumes(12) As Long
+    Dim tickerStartingPrices(12) As Single
+    Dim tickerEndingPrices(12) As Single
     
-'8) Loop through your arrays to output the Ticker, Total Daily Volume, and Return.
-    For i = 0 To 11
+    '6a) Initialize ticker volumes to zero
+    tickerVolumes(tickerIndex) = 0
         
-        ticker = tickers(tickerIndex)
-        
-        '5b) Create three output arrays
-        Dim tickerVolumes(12) As Long
-        Dim tickerStartingPrices(12) As Single
-        Dim tickerEndingPrices(12) As Single
-    
-        '6a) Initialize ticker volumes to zero
-        tickerVolumes(tickerIndex) = 0
-        
-        Worksheets(yearValue).Activate
+    Worksheets(yearValue).Activate
             
-        '6b) loop over all the rows
-        For j = 2 To RowCount
+    '6b) loop over all the rows
+    For i = 2 To RowCount
         
-            If Cells(j, 2).Value = ticker Then
-            '7a) Increase volume for current ticker
-            tickerVolumes(tickerIndex) = tickerVolumes(tickerIndex) + Cells(j, 9).Value
+        '7a) Increase volume for current ticker
+        tickerVolumes(tickerIndex) = tickerVolumes(tickerIndex) + Cells(i, 9).Value
             
-            End If
-            '7b) Check if the current row is the first row with the selected tickerIndex.
-            If Cells(j - 1, 2).Value <> ticker And Cells(j, 2).Value = ticker Then
+            
+        '7b) Check if the current row is the first row with the selected tickerIndex.
+        If Cells(i - 1, 2).Value <> tickers(tickerIndex) Then
                         
-                'set starting price
-                tickerStartingPrices(tickerIndex) = Cells(j, 7).Value
+            'set starting price
+            tickerStartingPrices(tickerIndex) = Cells(i, 7).Value
                   
-            End If
+        End If
                 
-            '7c) check if the current row is the last row with the selected ticker
-            If Cells(j + 1, 2).Value <> ticker And Cells(j, 2).Value = ticker Then
+        '7c) check if the current row is the last row with the selected ticker
+        If Cells(i + 1, 2).Value <> tickers(tickerIndex) Then
                         
                 ' set ending price
-                tickerEndingPrices(tickerIndex) = Cells(j, 7).Value
+                tickerEndingPrices(tickerIndex) = Cells(i, 7).Value
                         
-            End If
+                '7d Increase the tickerIndex.
+                tickerIndex = tickerIndex + 1
+         
+        End If
         
-        Next j
+    Next i
+        
+
+    '8) Loop through your arrays to output the Ticker, Total Daily Volume, and Return.
+    For i = 0 To 11
     
         Worksheets("AllStocksAnalysis").Activate
-        Cells(4 + i, 1).Value = tickers(tickerIndex)
-        Cells(4 + i, 2).Value = tickerVolumes(tickerIndex)
-        Cells(4 + i, 3).Value = tickerEndingPrices(tickerIndex) / tickerStartingPrices(tickerIndex) - 1
+        Cells(4 + i, 1).Value = tickers(i)
+        Cells(4 + i, 2).Value = tickerVolumes(i)
+        Cells(4 + i, 3).Value = tickerEndingPrices(i) / tickerStartingPrices(i) - 1
         
-        '7d Increase the tickerIndex.
-        tickerIndex = tickerIndex + 1
-    
+
     Next i
     
     '9) Formatting
